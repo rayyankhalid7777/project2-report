@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Project 2 Report</title>
+    <style>
+      :root {
+        --color-neutral-95: hsl(220 10% 95%);
+        --color-neutral-90: hsl(220 10% 90%);
+        --color-neutral-80: hsl(220 10% 80%);
+        --color-neutral-70: hsl(220 10% 70%);
+        --color-neutral-60: hsl(220 10% 60%);
+        --color-neutral-50: hsl(220 10% 50%);
+        --color-neutral-40: hsl(220 10% 40%);
+        --color-neutral-30: hsl(220 10% 30%);
+        --color-neutral-20: hsl(220 10% 20%);
+        --color-neutral-10: hsl(220 10% 10%);
+      }
+
+      html {
+        font: 100%/1.5 system-ui;
+        counter-reset: figure;
+        background: var(--color-neutral-95);
+        max-width: min(75vw, 80em);
+        margin: 0 auto;
+      }
+
+      /* Headings */
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        line-height: 1.1;
+        font-weight: 600;
+        text-wrap: balance;
+      }
+
+      h1,
+      h2 {
+        border-bottom: 1px solid var(--color-neutral-80);
+        padding-bottom: 0.2em;
+      }
+
+      h1 {
+        margin-block: 1em 0.5rem;
+        font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+        font-weight: 800;
+
+        small {
+          display: block;
+          width: fit-content;
+          padding: 0.2em 0.5em;
+          margin-inline: auto;
+          color: white;
+          background: var(--color-neutral-40);
+          font-size: 40%;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+      }
+
+      h2 {
+        font-size: 180%;
+        color: var(--color-neutral-30);
+      }
+
+      h3 {
+        font-size: 130%;
+      }
+
+      /* Lists */
+
+      ul,
+      ol {
+        padding-inline-start: 2em;
+      }
+
+      li {
+        &::marker {
+          color: var(--color-neutral-40);
+        }
+
+        + li {
+          margin-top: 0.2em;
+        }
+      }
+
+      /* Sectioning elements */
+
+      header {
+        padding-block: 1em;
+        text-align: center;
+      }
+
+      main {
+        background: white;
+        color: var(--color-neutral-20);
+        border-radius: 1rem;
+        padding: 0.1rem 2rem;
+      }
+
+      /* Figures */
+
+      figure {
+        margin: 1em 0;
+        padding: 0.5rem;
+        margin-inline: -0.5em;
+        border: 1px solid var(--color-neutral-80);
+        box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+        text-align: center;
+        background: white;
+
+        > figcaption {
+          font: 500 75% var(--font-sans);
+          background: var(--color-neutral-95);
+          padding: 0.5rem;
+          margin: -0.5rem;
+          margin-top: 0.5rem;
+          counter-increment: figure;
+          text-align: left;
+
+          &::before {
+            content: 'Figure ' counter(figure) ': ';
+            font-weight: bold;
+            color: var(--color-neutral-40);
+          }
+
+          a:not(:hover, :focus, :active) {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: color-mix(
+              in lab,
+              currentColor,
+              transparent 70%
+            );
+          }
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <small>Assignment 4</small>
+        Persuasive or Deceptive Visualization?
+      </h1>
+
+      <p><strong>Rayyan Khalid</strong> — <em>rkhalid@ucsd.edu</em></p>
+    </header>
+
+    <main>
+      <h2>Proposition: Complaints against NYPD officers are less likely to be substantiated when the officer is white.</h2>
+
+      <section>
+        <h3>FOR the Proposition</h3>
+
+        <figure>
+          <img src="viz_A1.png" alt="Bar chart showing substantiation rates by officer race" style="max-width: 600px; width: 100%; height: auto;" />
+          <figcaption>White officers show the lowest substantiation rate among all races.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+        <ul>
+          <li><strong>Y-axis truncation (-1.0):</strong> The axis starts at 15% instead of 0%, exaggerating the visual gap in substantiation rates.</li>
+          <li><strong>Color emphasis (-0.5):</strong> Red bar used for white officers to draw attention and suggest alarm or urgency.</li>
+          <li><strong>Title framing (-1.5):</strong> The title “White Officers Least Likely to Face Accountability” is emotionally charged and slanted.</li>
+          <li><strong>Straightforward encoding (+2.0):</strong> Simple bar chart helps readers immediately grasp racial disparity.</li>
+        </ul>
+
+        <figure>
+          <img src="viz_A2.png" alt="Line chart showing complaint substantiation trends over time by officer race" style="max-width: 600px; width: 100%; height: auto;" />
+          <figcaption>White officers’ substantiation rates show a declining trend from 2010 to 2020.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+        <ul>
+          <li><strong>Line emphasis (-1.0):</strong> White officer line is solid and thick, while others are dotted to emphasize contrast.</li>
+          <li><strong>Annotations (+0.5):</strong> Events like “Body cam rollout” are used to imply external influence, guiding interpretation.</li>
+          <li><strong>Data filtering (-1.5):</strong> Only the full trend for white officers is shown; early data for others omitted for clarity.</li>
+          <li><strong>Color encoding (+1.0):</strong> Uses color hierarchy (red > gray) to lead the eye subtly.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>AGAINST the Proposition</h3>
+
+        <figure>
+          <img src="viz_B1.png" alt="Grouped bar chart showing substantiation by complaint type and officer race" style="max-width: 600px; width: 100%; height: auto;" />
+          <figcaption>Substantiation rates are similar across races when controlled for complaint type.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+        <ul>
+          <li><strong>Control variable (+1.5):</strong> Complaint type used to show the outcome varies more by complaint category than by officer race.</li>
+          <li><strong>Neutral color encoding (+2.0):</strong> Uses a muted grayscale palette to avoid implying bias.</li>
+          <li><strong>Balanced layout (+2.0):</strong> Symmetrical grouped bars support direct, fair comparisons.</li>
+        </ul>
+
+        <figure>
+          <img src="viz_B2.png" alt="Bar chart showing substantiation rates by officer rank and race" style="max-width: 600px; width: 100%; height: auto;" />
+          <figcaption>Rank shows stronger correlation with accountability than race.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+        <ul>
+          <li><strong>Alternative explanation (+2.0):</strong> Introduces officer rank as a possible confounding variable.</li>
+          <li><strong>Direct comparison (+1.5):</strong> Renders white and Black officer data side-by-side for all ranks to keep focus clear.</li>
+          <li><strong>Clear labeling (+2.0):</strong> Uses concise rank titles and easy-to-read percentages to maintain clarity.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Final Reflection</h2>
+
+        <p>
+          This project challenged my assumptions about data neutrality and helped me see how easily visual design choices can shape perception.
+          My proposition - that white NYPD officers are less likely to have complaints substantiated - was both controversial and data-rich,
+          making it ideal for persuasive visualization.
+        </p>
+
+        <p>
+          I found that supporting the proposition was more emotionally powerful, especially with visual tactics like color emphasis and truncated axes.
+          Refuting the proposition, on the other hand, required more analytical framing: introducing alternate variables like complaint type and rank helped provide context.
+          While Set A leaned into rhetorical techniques, Set B felt more fair and transparent - but perhaps less persuasive. This tension made me rethink what qualifies as ethical data storytelling.
+        </p>
+
+        <p>
+          Ultimately, I've come to define ethical visualization not just as accurate encoding, but also as transparency about intent.
+          Persuasion is not inherently deceptive, but it becomes problematic when viewers can't tell how or why they're being nudged toward a conclusion.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
